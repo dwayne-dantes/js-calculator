@@ -32,6 +32,21 @@ A frontend calculator built with vanilla JavaScript, focusing on clean state man
 ## Testing
 - Integration tests validate calculation flow and edge cases
 - Tests cover operators, decimals, sign changes, and clearing behavior
+- 
+## Running the Project
 
+This is a pure frontend JavaScript project with no backend or external dependencies.
+
+### Option 1: Open directly
+You can open `index.html` directly in a browser.
+
+> Note: Some browsers may restrict certain features when opening files directly.
+
+### Option 2: Using a simple local server (recommended)
+
+#### Python
+```bash
+python3 -m http.server
+```
 ## Notes
 This project was built as a first JavaScript project to learn core JS concepts such as DOM manipulation, state handling, and testing, without relying on external libraries or frameworks.
