@@ -18,10 +18,10 @@ A frontend calculator built with vanilla JavaScript, focusing on clean state man
 - CSS
 
 ## Project Structure
-- `dom` – Handles UI interactions and DOM updates
-- `calculator` – Coordinates user input and calculator state
-- `engine` – Core calculation logic
-- `engine.test` – Integration tests for calculation behavior
+- `dom.js` – Handles UI interactions and DOM updates
+- `calculator.js` – Coordinates user input and calculator state
+- `engine.js` – Core calculation logic
+- `engine.test.js` – Integration tests for calculation behavior
 
 ## How It Works
 - User input is handled exclusively through button interactions via the DOM layer
