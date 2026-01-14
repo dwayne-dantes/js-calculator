@@ -1,26 +1,42 @@
-import { decideInput } from "./engine.js";
+import { eveluate } from "./engine.js";
 
 const buttons = document.querySelectorAll("button");
-let value;
 
-let state = createInitialState();
+let currentDisplay = "";
+let expression ="";
+
 
 buttons.forEach(button => {
   button.addEventListener("click", () => {
-    value = button.dataset.value;
-    state = decideInput(state, state.currentInput, state.storedValue, state.currentOperator, state.currentText, value);
-    display.value = state.currentText;
-    display.scrollLeft = display.scrollWidth;
+    let value = button.dataset.value;
+    handleButton(value, display)    
   });
 });
 
 
-function createInitialState() {
-  return {
-    currentInput: "",
-    currentOperator: "",
-    storedValue: "",
-    currentText: ""
-  };
+function handleButton(symbol, display) {
+  if (symbol === "=") {
+    try {
+      expression = currentDisplay;
+      const result = eveluate(expression);
+      display.value = result;
+      expression = result;
+      currentDisplay= result;
+    }
+    catch (err) {
+      display.value = err.message;
+      expression = "";
+    }
+  }
+  if (symbol === "c") {
+    currentDisplay = ""
+    expression = "";
+    display.value = ""
+    return;
+  }
+  else if (!["=", "c", "b"].includes(symbol)) {
+    currentDisplay += symbol
+    display.value = currentDisplay 
+    display.scrollLeft = display.scrollWidth;
+  }
 }
-
