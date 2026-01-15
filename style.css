@@ -17,23 +17,33 @@ body {
   background: #222;
   border-radius: 12px;
 }
-#display {
+.display {
   width: 100%;
-  margin-bottom: 12px;
-  padding: 10px;
-
-  font-size: 2rem;
+  min-height: 100px;      
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;   
+  align-items: flex-end;  
+  border: 2px solid #333;
+  border-radius: 6px;
+  font-size: 2rem;  
+  padding: 10px;    
   text-align: right;
-
-  background: black;
+  background: black;       
   color: white;
-
-  border: none;
-  border-radius: 8px;
-  outline: none;
+  box-sizing: border-box;  
+  overflow: hidden;  
+  margin-bottom: 12px;
+}
+#top-expression {
+  font-size: 1rem;
+  opacity: 0.6;
+}
+#bottom-expression {
+  font-size: 2rem;
 }
 
-.display {
+.button-display{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 8px;
