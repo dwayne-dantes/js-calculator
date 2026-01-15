@@ -46,10 +46,6 @@ Uses a custom expression parser for accurate evaluation, parenthesis support, an
    - Top line: previous full expression
    - Bottom line: current input or result
 
-## Testing
-- Integration tests validate calculation flow and edge cases
-- Tests cover operators, decimals, sign changes, and clearing behavior
-
 
 ## Running the Project
 
