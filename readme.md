@@ -1,38 +1,56 @@
 # JavaScript Calculator
 
-A frontend calculator built with vanilla JavaScript, focusing on clean state management and testable calculation logic.
+A frontend calculator built with vanilla JavaScript.  
+Uses a custom expression parser for accurate evaluation, parenthesis support, and clean state management.
+
+---
 
 ## Features
-- Button-only input (no keyboard input)
-- Result displayed in a read-only input field
-- Basic arithmetic operations: `+`, `-`, `*`, `/`
-- Step-by-step evaluation (e.g. `3 + 4 + 3` is evaluated as `7 + 3`)
-- Decimal number support
-- Sign toggle (`+ / -`)
-- Clear (`C`) functionality
-- Backspace support (operators are protected from deletion)
+
+- Two-line display (full expression + current result)
+- Button-only input (no keyboard)
+- Supports:
+  - +, -, *, /
+  - Parentheses: (...)
+  - Implicit multiplication: `2(3)`, `(4)(5)`, `(2+3)4`
+  - Decimal numbers
+- Backspace support with safe deletion rules
+- Clear (C) functionality
+- Error handling for:
+  - Missing or extra parentheses
+  - Operator at end of expression
+  - Two operators in a row
+  - Multiple decimal points
+  - Division by zero
+- Result continuation (pressing "=" again keeps evaluating)
+
+---
 
 ## Tech Stack
+
 - JavaScript (ES6+)
 - HTML
 - CSS
-
-## Project Structure
-- `dom.js` – Handles UI interactions and DOM updates
-- `calculator.js` – Coordinates user input and calculator state
-- `engine.js` – Core calculation logic
-- `engine.test.js` – Integration tests for calculation behavior
+- Custom expression parser (included as Git submodule)
 
 ## How It Works
-- User input is handled exclusively through button interactions via the DOM layer
-- Calculator state is updated step by step
-- The engine evaluates expressions incrementally instead of parsing full expressions
-- Integration tests ensure correct behavior across user interactions
+
+1. User interacts only through on-screen buttons.
+2. Calculator constructs the input expression as a string.
+3. Expression is processed by the custom parser:
+   - Tokenizes input
+   - Validates syntax rules
+   - Evaluates using safe arithmetic
+4. Result is formatted to avoid unnecessary decimal digits.
+5. The display is updated with:
+   - Top line: previous full expression
+   - Bottom line: current input or result
 
 ## Testing
 - Integration tests validate calculation flow and edge cases
 - Tests cover operators, decimals, sign changes, and clearing behavior
-- 
+
+
 ## Running the Project
 
 This is a pure frontend JavaScript project with no backend or external dependencies.
