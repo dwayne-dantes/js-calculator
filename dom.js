@@ -41,8 +41,13 @@ function handleButton(symbol, currentDisplay, oldExpression, expression, express
   }
   else if (symbol === "b" && error === "") {
     currentDisplay = currentDisplay.slice(0, currentDisplay.length-1);
-    if (expression !== "") {
+
+    if (expression !== "" && oldExpression === "") {
       expression = expression.slice(0, expression.length-1);
+    }
+    if (oldExpression !== "") {
+      oldExpression = oldExpression.slice(0, oldExpression.length-1);
+      expression = oldExpression;
     }
   }
   else if (!["=", "c", "b"].includes(symbol) && error === "") {
